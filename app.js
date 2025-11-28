@@ -1,10 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import createEmployee from "./routes/createEmployee.js";
-import deleteEmployee from "./routes/deleteEmployee.js";
-import readEmployee from "./routes/readEmployee.js";
-import updateEmployee from "./routes/updateEmployee.js";
+import createRealEstateItem from "./routes/createRealEstateItem.js";
+import deleteRealEstateItem from "./routes/deleteRealEstateItem.js";
+import readRealEstate from "./routes/readRealEstate.js";
+import updateRealEstateItem from "./routes/updateRealEstateItem.js";
 
 dotenv.config();
 
@@ -14,13 +14,16 @@ const mongoUrl = process.env.CONNECTION_STRING;
 
 app.use(express.json());
 
-app.use("/api/employees", createEmployee);
+app.use("/api/realestate", createRealEstateItem);
+app.use('/api/realestate', deleteRealEstateItem);
+app.use('/api/realestate', readRealEstate);``
+app.use('/api/realestate', updateRealEstateItem);
 
 async function run() {
     const client = mongoose
     try {
         await client.connect(mongoUrl);
-        console.log("You successfully connected to MongoDB");
+        console.log("You successfully connected to MongoDB");``
     } catch (err) {
         process.exit(1);
     }

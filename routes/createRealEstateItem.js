@@ -1,10 +1,10 @@
-import express from "express";
+import express from 'express';
 
-import RealEstateItem from "../models/RealEstateItem.js";
+import RealEstateItem from '../models/RealEstateItem.js';
 
 const router = express.Router();
 
-router.post("/create", async (req, res) => {
+router.post('/create', async (req, res) => {
     try {
 
         const schemaFields = Object.keys(RealEstateItem.schema.obj);
@@ -20,7 +20,7 @@ router.post("/create", async (req, res) => {
 
         res.status(201).json(createdREItem);
     } catch (error) {
-        const errorMessage = "Error: " + error.message;
+        const errorMessage = 'Error: ' + error.message;
         res.status(400).json({ error: errorMessage });
     }
 });

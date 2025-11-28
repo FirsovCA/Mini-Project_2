@@ -1,20 +1,20 @@
-import express from "express";
+import express from 'express';
 
-import RealEstateItem from "../models/RealEstateItem.js";
+import RealEstateItem from '../models/RealEstateItem.js';
 
 const router = express.Router();
 
-router.get("/read", async (req, res) => {
+router.get('/read', async (req, res) => {
     try {
         const RealEstateItems = await RealEstateItem.find();
         res.status(200).json(RealEstateItems);
     } catch (error) {
-        const errorMessage = "Error: " + error.message;
+        const errorMessage = 'Error: ' + error.message;
         res.status(400).json({ error: errorMessage });
     }
 });
 
-router.get("/read/:property_id", async (req, res) => {
+router.get('/read/:property_id', async (req, res) => {
     try {
         const { property_id } = req.params;
 
@@ -26,7 +26,7 @@ router.get("/read/:property_id", async (req, res) => {
 
         res.status(200).json(realEstateItem);
     } catch (error) {
-        const errorMessage = "Error: " + error.message;
+        const errorMessage = 'Error: ' + error.message;
         res.status(400).json({ error: errorMessage });
     }
 });

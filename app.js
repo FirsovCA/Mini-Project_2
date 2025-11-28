@@ -23,7 +23,7 @@ async function run() {
     const client = mongoose
     try {
         await client.connect(mongoUrl);
-        console.log("You successfully connected to MongoDB");``
+        console.log("You successfully connected to MongoDB");
     } catch (err) {
         process.exit(1);
     }
